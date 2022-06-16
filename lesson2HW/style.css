@@ -1,0 +1,37 @@
+.block {
+    box-sizing: border-box;
+    width: 70%;
+    margin: 10px auto;
+    border:1px solid black;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    background-color:#d1d58a ;
+    
+}
+.btn {
+    border:1px solid black;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+.active {
+    background-color: aquamarine;
+    
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+    
+}
+.btn-submit {
+    background-color: green;
+    color: white;
+}
+.active + .block h3{
+    text-decoration: underline;
+}
+.active + .block p{
+    text-transform: uppercase;
+}

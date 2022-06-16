@@ -1,0 +1,36 @@
+body{
+    background: black;
+
+}
+.container{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+table{
+    width:80%;
+    margin: 2rem auto;
+    border:1px solid grey;
+    border-collapse: collapse;
+    background:rgb(160, 176, 160);
+}
+table th, table td{
+    border:1px solid grey;
+    padding: .5rem 1rem;
+}
+[data-selected]{
+    background-color: green;
+}
+.anchor-up{
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #c6c6c6;
+    border-radius:.5rem ;
+    position: fixed;
+    top:50%;
+    right: 0;
+    
+}
