@@ -1,0 +1,200 @@
+body{
+    background-color: black;
+}
+.container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+.container .product{
+    border: 1px solid #c6c6c6;
+    border-radius: .3rem;
+    padding: 1rem;
+    position: relative;
+    min-height:285px ;
+}
+.row{
+    padding: 2rem;
+}
+img{
+    width:80%;
+}
+.img-block{
+    text-align: center;
+}
+.add-to-cart{
+    width: 2rem;
+    border-radius: .3rem;
+    position: absolute;
+    top:2rem;
+    right:2rem ;
+    z-index: 1;
+}
+/* --------------------------------------------------------- */
+.filter{
+    display: inline-block;
+    border: 1px solid #c6c6c6;
+    padding: 0;
+    margin-top:2rem;
+    margin-left: 8rem;
+}
+.container>.filter>div{
+    cursor: pointer;
+    padding: .5rem 1rem;
+}
+ul{
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color:white;
+}
+li{
+    border-bottom: 1px solid #c6c6c6;
+    padding: .5rem 2.5rem;
+    background-color: #c6c6c6;
+}
+.filter:hover ul{
+    display: block;
+    position: absolute;
+
+}
+.filter:hover{
+    background-color:#c6c6c6 ;
+    color: white;
+}
+li:hover{
+    background-color: black;
+}
+
+
+/* --------9-------------------------------------------------------------------------------------- */
+.detail,.detail-btn{  
+    display: none;
+}
+
+.product:hover .detail {
+    display: block;
+    background: rgba(0,0,0,0.2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: .3rem;
+    text-align: center;
+    
+}
+.product:hover .detail-btn{
+    display: block;
+    padding: .4rem 1.5rem;
+    border-radius: .5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 2rem);
+    right:0;
+    left: 0;
+    margin: 0 auto;
+
+}
+.product:hover .img-block {
+   scale: 0.9;
+   transition: scale 2s;
+}
+@media (max-width:600px) {
+    .container .product{
+        min-height:265px;
+    }
+    
+}
+@media (max-width:375px) {
+    .container .product{
+        min-height:235px;
+    }
+    
+}
+/* -------------------------------------------------------------- */
+form{
+    padding: 5rem;
+}
+/* ----------------------------------- */
+.social-media {
+    position: relative;
+    margin: 0 auto;
+    border: 1px solid ;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: fit-content;
+    text-align: center;
+}
+
+.social-media-container div {
+    width: 7.5rem;
+    height: 8.5rem;
+    border-radius: 2rem;
+    float: left;
+    margin: 1rem;
+}
+.facebook-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top 0px left 0px ;
+}
+.facebook-icon:hover{
+    background-position: top 0 left -70px;
+    cursor: pointer;
+}
+.twitter-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top -174px left 0px ;
+}
+.twitter-icon:hover{
+    background-position: top -174px left -70px;
+    cursor: pointer;
+}
+.instagram-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top 0px left -212px ;
+}
+.instagram-icon:hover{
+    background-position: top 0 left -280px;
+    cursor: pointer;
+}
+.pinterest-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top -174px left -212px ;
+}
+.pinterest-icon:hover{
+    background-position: top -174px left -280px;
+    cursor: pointer;
+}
+.social-media:hover h3{
+    animation-name: social;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes social {
+    0%{
+        scale: 100%;
+    }
+    30%{
+        scale: 120%;
+    }
+    50%{
+        scale: 100%;
+    }
+    75%{
+        scale: 120%;
+    }
+    100%{
+        scale: 100%;
+    }
+
+}

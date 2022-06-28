@@ -12,13 +12,14 @@ body{
 }
 
 .container>.product{
-    vertical-align: top;
+    /* vertical-align: top; */
     width: 25%;
     border: 1px solid #c6c6c6;
     border-radius: .3rem;
     padding: 1rem;
     position: relative;
-    display: inline-block;
+    float: left;
+    /* display: inline-block; */
     box-sizing: border-box;
 }
 img{
@@ -33,7 +34,9 @@ img{
     position: absolute;
     top:2rem;
     right:2rem ;
+    z-index: 1;
 }
+
 /* ----------------------------------------------------------- */
 .filter{
     display: inline-block;
@@ -70,3 +73,47 @@ li{
 li:hover{
     background-color: black;
 }
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: inline-block;
+}
+
+/* --------9-------------------------------------------------------------------------------------- */
+.detail,.detail-btn{  
+    display: none;
+}
+
+.product:hover .detail {
+    display: block;
+    background: rgba(0,0,0,0.2);
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: .3rem;
+    text-align: center;
+    
+}
+.product:hover .detail-btn{
+   display: block;
+    background: #414141;
+    color: white;
+    padding: .4rem 1.5rem;
+    border-radius: .5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 2rem);
+    right:0;
+    left: 0;
+    margin: 0 auto;
+
+}
+.product:hover .img-block {
+   scale: 0.9;
+   transition: scale 2s;
+}
+.product:hover 
