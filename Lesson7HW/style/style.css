@@ -1,0 +1,172 @@
+@font-face {
+    font-family: Rubik;
+    src: url(/Lesson7HW/Fonts/Rubik/RubikMoonrocks-Regular.ttf);
+    line-height: 1.5rem;
+} 
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+
+html{
+    height: 100%;
+}
+body{
+    background-color: rgb(236, 236, 236);
+    height: 100%;
+    font-family: Alice;
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    width: 100%;
+    margin: 0;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    border-top: 4px solid rgb(44, 159, 149);
+}
+.header-container h2{
+    text-transform: uppercase;
+}
+.header-container{
+    width:50%;
+    margin:0 auto;
+    padding: 3rem 0;
+    text-align: center;
+    
+}
+.header-container .btn-twitter{
+  border-radius: 1.5rem;
+  margin-top: 1rem;
+}
+
+.header-container h2 svg{
+    color:rgb(44, 159, 149);
+    scale: 1.5;
+    
+}
+.header-container h3{
+    margin-top: 1rem;
+    font-family: Rubik;
+}
+.header-container h3 svg{
+    color:red;
+   scale: 1.3;
+}
+.text-green{
+    color:rgb(44, 159, 149);
+}
+/* ------------------------------ MAIN --------------------------------------------------- */
+main{
+    width:60%;
+    margin:0 auto;
+    padding: 3rem 0;
+    text-align: center;
+    flex: 1 1 auto;
+
+}
+.text-container h3{
+    font-family: Pacifico;
+}
+main .text-container p{
+    margin-top: 2rem;
+}
+
+/* -------------------------------- PLATE ---------------------------------------------------- */
+.plate-container{
+    margin-top: 2rem;
+    justify-content:space-around;
+    align-items: center;
+}
+.plate{
+    margin-bottom: 2rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: .3rem;
+    min-height: 340px;
+
+}
+.img-container-plate{
+    margin: 1.5rem;
+}
+
+.plate-green{
+    border-top: 3px solid rgb(115, 155, 54);
+}
+.plate-green svg{
+    color:rgb(115, 155, 54);
+    scale:2;
+}
+.plate-green:hover h5{
+    color:rgb(115, 155, 54) ;
+}
+
+.plate-rose{
+    border-top: 3px solid rosybrown;
+}
+.plate-rose svg{
+    color:rosybrown;
+    scale: 2;
+}
+.plate-rose:hover h5{
+    color: rosybrown;
+}
+.plate-blue{
+    border-top: 3px solid blue;
+}
+.plate-blue svg{
+    color:blue;
+    scale: 2;
+}
+.plate-blue:hover h5{
+    color: blue;
+}
+.plate-purple{
+    border-top:3px solid purple;
+}
+.plate-purple svg{
+    color: purple;
+    scale: 2;
+}
+.plate-purple:hover h5{
+    color: purple;
+}
+.plate-lightblue{
+    border-top: 3px solid lightblue;
+}
+.plate-lightblue svg{
+    color: lightblue;
+    scale:2;
+}
+.plate-lightblue:hover h5{
+    color:lightblue;
+}
+.plate-orange{
+    border-top: 3px solid orange;
+}
+.plate-orange svg{
+    color: orange;
+    scale: 2;
+}
+.plate-orange:hover h5{
+    color: orange;
+}
+.plate:hover{
+    background-color: rgb(224, 224, 224);
+    cursor: pointer;
+}
+footer{
+    text-align: center;
+    margin: 0;
+    background-color: rgb(77, 77, 77);
+    color: white;
+}
+footer p{
+    padding: 1rem;
+}
+footer svg{
+    color:rgb(198, 124, 124);
+    scale: 0.7;
+}
