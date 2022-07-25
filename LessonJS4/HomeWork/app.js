@@ -16,9 +16,7 @@ const students = [
 function logAdmins(students) {
     //вернуть из функции список тех, у кого поле isAdmin: true
     let studentsIsAdmin = students.filter(function (student) {
-        if (student.isAdmin === true) {
-            return student;
-        }
+        return student.isAdmin;
     });
     console.log(studentsIsAdmin);
     return studentsIsAdmin;
@@ -30,9 +28,7 @@ function filterByMark(students) {
     let teacherMark = +prompt("Put the mark");
 
     let goodMarkStudents = students.filter(function (student) {
-        if (student.mark >= teacherMark) {
-            return student;
-        }
+        return student.mark >= teacherMark;
     });
     console.log(goodMarkStudents);
     //и вернуть из функции список тех, у кого в поле mark оценка >= чем введенная ранее
@@ -60,8 +56,7 @@ function getAverageMark(students) {
         sum += student.mark;
         return sum;
     }, 0);
-    let length = students.length;
-    let averageMark = (sum / length).toFixed(2);
+    let averageMark = (sum / students.length).toFixed(2);
 
     console.log(averageMark);
     return averageMark;
@@ -83,9 +78,9 @@ function getDataList(students) {
     //вернуть список, состоящий из name и email студентов
 
     let namesAndEmails = students.map(function (student) {
-        let arrayNamesEmails = [];
-        arrayNamesEmails.push(student.name);
-        arrayNamesEmails.push(student.email);
+        let arrayNamesEmails = {};
+        arrayNamesEmails.name = student.name;
+        arrayNamesEmails.email = student.email;
         return arrayNamesEmails;
     });
     console.log(namesAndEmails);
