@@ -41,17 +41,12 @@ function getAverageArea(countries) {
     for (var i = 0; i < countries.length; i++) {
         averageArea.push(countries[i].area);
     }
-    // console.log(averageArea);
+    var averageAreaSum = averageArea[0];
+    for (var n = 1; n < averageArea.length; n++) {
+        averageAreaSum = averageAreaSum + averageArea[n];
+    }
+    averageArea = averageAreaSum / averageArea.length;
 
-    // for (var n = 0; n < averageArea.length; n++) {
-    //     var Area = averageArea[0];
-    //     var averageAreaSum = Area + averageArea[n + 1];
-
-    // }
-    var sum = averageArea.reduce((acc, number) => acc + number, 0);
-    var length = averageArea.length;
-    var averageArea = sum / length;
-    // console.log(averageArea.toFixed(1));
     return averageArea.toFixed(1);
 }
 var average = getAverageArea(countries);
@@ -65,7 +60,10 @@ function getUniqueRegions(countries) {
     */
     var uniqueRegions = [];
     for (var i = 0; i < countries.length; i++) {
-        uniqueRegions.push(countries[i].region);
+        if (!uniqueRegions.includes(countries[i].region)) {
+            uniqueRegions.push(countries[i].region);
+            i--;
+        }
     }
     return uniqueRegions;
 }
