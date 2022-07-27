@@ -11,13 +11,21 @@ let inputValue = document.getElementById("search");
 function filtredCountries() {
     let filtredCountrys = countries.filter(function (country) {
         let searchValue = inputValue.value.toLowerCase().trim();
-        if (country.name.toLowerCase().trim().includes(searchValue)) {
-            return country.name.toLowerCase().trim().includes(searchValue);
-        } else if (country.region.toLowerCase().trim().includes(searchValue)) {
-            return country.region.toLowerCase().trim().includes(searchValue);
-        } else if (country.capital.toLowerCase().trim().includes(searchValue)) {
-            return country.capital.toLowerCase().trim().includes(searchValue);
-        }
+        // if (country.name.toLowerCase().trim().includes(searchValue)) {
+        //     return country.name.toLowerCase().trim().includes(searchValue);
+        // } else if (country.region.toLowerCase().trim().includes(searchValue)) {
+        //     return country.region.toLowerCase().trim().includes(searchValue);
+        // } else if (country.capital.toLowerCase().trim().includes(searchValue)) {
+        //     return country.capital.toLowerCase().trim().includes(searchValue);
+        // }
+        let countryName = country.name.toLowerCase().trim();
+        let countryRegion = country.region.toLowerCase().trim();
+        let countryCapital = country.capital.toLowerCase().trim();
+        return (
+            countryName.includes(searchValue) ||
+            countryRegion.includes(searchValue) ||
+            countryCapital.includes(searchValue)
+        );
     });
     htmlCountrys(filtredCountrys);
 }
