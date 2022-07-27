@@ -78,12 +78,10 @@ function getDataList(students) {
     //вернуть список, состоящий из name и email студентов
 
     let namesAndEmails = students.map(function (student) {
-        let arrayNamesEmails = {};
-        arrayNamesEmails.name = student.name;
-        arrayNamesEmails.email = student.email;
-        return arrayNamesEmails;
+        return { name: student.name, email: student.email };
     });
     console.log(namesAndEmails);
+    return namesAndEmails;
     //пример результата: [{name: 'Vasya', email: 'vasya@gmail.com'}, {name: 'Helen', email: 'helen@gmail.com'}, ..., {name: 'Anna', email: 'anna@gmail.com'}]
 }
 getDataList(students);
