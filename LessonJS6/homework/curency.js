@@ -7,18 +7,10 @@ document.querySelector(".container .load").onclick = function (e) {
     inputValue.value = "";
     let chooseDate = document
         .querySelector(".container .choosedate")
-        .value.split("")
-        .filter(function (date) {
-            return date != "-";
-        })
+        .value.split("-")
         .join("");
     let access = `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${chooseDate}&json`;
     // console.log(chooseDate);
-    // if (access.includes(chooseDate)) {
-    //     console.log("ooooo");
-    // }
-    // console.log(access);
-
     fetch(access)
         .then(function (data) {
             return data.json();
@@ -32,7 +24,7 @@ document.querySelector(".container .load").onclick = function (e) {
                     date: currency.exchangedate,
                 };
             });
-
+            console.log(data);
             renderTable(currencyArray);
             document.querySelector(".container .search").onclick = function (
                 event
