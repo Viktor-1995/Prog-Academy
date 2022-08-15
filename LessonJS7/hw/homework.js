@@ -4,9 +4,9 @@ let storedCountries = [];
 function checkSelect() {
     document.querySelector(".countries-select").onchange = function (e) {
         const value = e.currentTarget.value;
-        const filteredCountries = countries.filter(function (country) {
-            return country.region === value;
-        });
+        const filteredCountries = countries.filter(
+            (country) => country.region === value
+        );
         renderCountries(
             filteredCountries.length ? filteredCountries : countries
         );
@@ -16,7 +16,7 @@ function checkSelect() {
 }
 
 function renderSelect(countries) {
-    const uniqueRegions = countries.reduce(function (acc, country) {
+    const uniqueRegions = countries.reduce((acc, country) => {
         if (!acc.includes(country.region)) {
             acc.push(country.region);
         }
@@ -24,9 +24,7 @@ function renderSelect(countries) {
     }, []);
     let htmlStr = `<option value="">Not Selected</option>`;
     htmlStr += uniqueRegions
-        .map(function (region) {
-            return `<option value="${region}">${region}</option>`;
-        })
+        .map((region) => `<option value="${region}">${region}</option>`)
         .join("");
 
     let selectElement = document.createElement("select");
@@ -88,6 +86,7 @@ function renderCountries(countries) {
                     <td>${country.capital || "---"}</td>
                     <td>${country.region}</td>
                     <td>${country.area}</td>
+                    <td>${country.population}</td>
                 </tr>`
         );
     }, "");
@@ -125,9 +124,7 @@ document.querySelector(".load-countries").onclick = function () {
         .querySelector(".load-countries button")
         .setAttribute("disabled", "");
     fetch("https://restcountries.com/v2/all")
-        .then(function (data) {
-            return data.json();
-        })
+        .then((data) => data.json())
         .then(function (data) {
             document
                 .querySelector(".load-countries button")
@@ -138,6 +135,7 @@ document.querySelector(".load-countries").onclick = function () {
                     capital: country.capital || "",
                     area: country.area || 0,
                     region: country.region,
+                    population: country.population,
                 };
             });
             const countriesSelect = document.querySelector(".countries-select");
