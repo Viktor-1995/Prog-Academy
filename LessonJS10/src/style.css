@@ -1,0 +1,91 @@
+ body,html{
+    height: 100%;
+ }
+ .wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+ }
+ main .container{
+    /* display: flex; */
+    padding: 2rem;
+    height: 100%;
+    flex: 1 1 auto;
+ }
+ li{
+    justify-content: center;
+     text-align: center;
+
+   }
+   
+   .footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   }
+   .header-container{
+     padding: 1rem;
+     display: flex; 
+     justify-content: space-between;
+
+   }
+   .header,footer{
+     background-color:rgb(223, 219, 219);
+   }
+   .header-container ul{
+     padding-left: 1rem;
+     cursor: pointer;
+   }
+   a{
+     text-decoration: none;
+   }
+   h4{
+     color: aliceblue;
+     padding: 1rem;
+   }
+/* -------------------------------------------------- */
+
+.social-media-container div {
+    width: 3.5rem;
+    height: 4rem;
+    border-radius: 1rem;
+    float: left;
+    margin: 1rem;
+}
+.facebook-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top -10px left -10px ;
+}
+.facebook-icon:hover{
+    background-position: top -10px left -80px;
+    cursor: pointer;
+}
+.twitter-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top -184px left -10px ;
+}
+.twitter-icon:hover{
+    background-position: top -184px left -80px;
+    cursor: pointer;
+}
+.instagram-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top -10px left -222px ;
+}
+.instagram-icon:hover{
+    background-position: top -10px left -290px;
+    cursor: pointer;
+}
+.pinterest-icon {
+    background-image: url(/Lesson5HW/Img/Social_media.png);
+    background-size:428px;
+    background-position: top -184px left -222px ;
+}
+.pinterest-icon:hover{
+    background-position: top -184px left -290px;
+    cursor: pointer;
+}
