@@ -1,0 +1,14 @@
+.card-container{
+    margin:0 auto;
+    justify-content: space-around;
+}
+.container{
+    text-align: center;
+}
+h2{
+    color:antiquewhite;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
