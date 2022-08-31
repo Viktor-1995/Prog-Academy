@@ -7,11 +7,16 @@ function CartsInside({ product, removeFromCart, addCount, minusCount }) {
     return (
         <ListGroup.Item>
             {product.brand} price is ${product.price}
-            <Button onClick={() => addCount(product.id, product.count)}>
+            <Button
+                className="p-1"
+                onClick={() => addCount(product.id, product.count)}
+            >
                 +
             </Button>
             {product.count}
             <Button
+                variant="danger"
+                className="p-1 "
                 onClick={
                     product.count <= 1
                         ? () => removeFromCart(product.id)

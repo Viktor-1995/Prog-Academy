@@ -21,3 +21,8 @@ a{
 .removeBtnCart{
     margin-left: 1rem;
 }
+.fullprofile{
+    position:fixed;
+    top: 6rem;
+    right: 2rem;   
+}

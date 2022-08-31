@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ListGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 // import { ListGroup } from "react-bootstrap";
 import CartsInside from "./CartsInside";
+import ChangeTheme from "./ChangeTheme";
+import ThemeContext from "../context/ThemeContext";
 
 function Cart({
     productss,
@@ -14,6 +16,7 @@ function Cart({
     minusCount,
     products,
 }) {
+    const { profile } = useContext(ThemeContext);
     const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
         setTotalPrice(
@@ -28,7 +31,7 @@ function Cart({
     const popover = (
         <Popover id="popover-basic">
             <Popover.Header as="h3" className="text-center">
-                Cart Items
+                Cart Items of {profile.name}
             </Popover.Header>
 
             <Popover.Body>
@@ -43,7 +46,9 @@ function Cart({
                     ))}
                 </ListGroup>
             </Popover.Body>
+
             <Popover.Header>Total Price:{totalPrice}</Popover.Header>
+            <ChangeTheme />
         </Popover>
     );
     return (

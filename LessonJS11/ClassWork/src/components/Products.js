@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Product from "./Product";
 import "./products.css";
 import Container from "react-bootstrap/Container";
@@ -7,6 +7,8 @@ import Form from "react-bootstrap/Form";
 import CategoryFilter from "./CategoryFilter";
 import SearchInProducts from "./SearchInProducts";
 import Cart from "./Cart";
+import ThemeContext from "../context/ThemeContext";
+import FullProfile from "./FullProfile";
 
 function Products() {
     const [products, setProducts] = useState([]);
@@ -15,7 +17,8 @@ function Products() {
     const [filterbyCategory, setFilterbyCategory] = useState(["allProducts"]);
     const [searchValue, setSearchValue] = useState("");
     const [filtredProducts, setFiltredProducts] = useState([]);
-
+    let { message, setMessage } = useContext(ThemeContext);
+    let { setVision } = useContext(ThemeContext);
     useEffect(() => {
         fetch("https://dummyjson.com/products")
             .then((res) => res.json())
@@ -65,7 +68,9 @@ function Products() {
         // console.log(products);
     }
     const addToCart = (id) => {
-        // console.log(id);
+        // console.log("item in");
+        setMessage("Item added to your cart");
+        setVision("");
         categoryValue
             ? setFilterbyCategory(
                   filterbyCategory.map((product) => ({
@@ -83,6 +88,9 @@ function Products() {
               );
     };
     const removeFromCart = (id) => {
+        // console.log("item out");
+        setMessage(" Item removed from your Cart");
+        setVision("");
         categoryValue
             ? setFilterbyCategory(
                   filterbyCategory.map((product) => ({
@@ -126,13 +134,16 @@ function Products() {
     return (
         <Container className="container mt-2 p-3">
             <h2>Products</h2>
+            <div className="fullprofile">
+                <FullProfile />
+            </div>
             <div className="cart">
                 <Cart
                     products={products}
                     addCount={addCount}
                     minusCount={minusCount}
-                    productss={(categoryValue == "allProducts" ||
-                    categoryValue == ""
+                    productss={(categoryValue === "allProducts" ||
+                    categoryValue === ""
                         ? products
                         : filterbyCategory
                     ).filter((product) => product.addedToCart)}
@@ -141,7 +152,7 @@ function Products() {
                 />
             </div>
             {/* <SearchInProducts search={search} /> */}
-            <Form.Select
+            {/* <Form.Select
                 onChange={chooseCategory}
                 aria-label="select-categories select "
             >
@@ -149,7 +160,7 @@ function Products() {
                 {allCategories.map((category) => {
                     return <CategoryFilter category={category} />;
                 })}
-            </Form.Select>
+            </Form.Select> */}
             <Row className="card-container pt-3">
                 {filterbyCategory.length ? (
                     (categoryValue ? filterbyCategory : products).map(
