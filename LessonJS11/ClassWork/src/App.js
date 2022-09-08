@@ -1,11 +1,15 @@
 import "./App.css";
-import Countries from "./components/Countries";
 import Products from "./components/Products";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import ThemeContext from "./context/ThemeContext";
 import Profile from "./components/Profile";
 import Message from "./components/Message";
+import Header from "./components/Header";
+import SingleProduct from "./components/SingleProduct";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AboutCompany from "./staticpages/AboutCompany";
 
 function App() {
     const [theme, setTheme] = useState("bg-light");
@@ -15,39 +19,75 @@ function App() {
         adress: "",
         number: "",
     });
-    const [message, setMessage] = useState("");
+    const [messageObj, setMessageObj] = useState({});
     const [vision, setVision] = useState("hide");
-    // я не понял как сделать что б сообщение через время пропадли
-    // useEffect(() => {
-    //     setTimeout(() => setVision("hide"), 2000);
-    // }, [message]);
-
+    useEffect(() => {
+        let savedProfile = localStorage.getItem("profile");
+        if (savedProfile) {
+            savedProfile = JSON.parse(savedProfile);
+            setProfile(savedProfile);
+        }
+    }, []);
+    // console.log(messageObj);
     return (
         <div className={`p-4 ${theme}`} id="app">
-            {/* <Countries /> */}
-            <div className={`message ${vision}`}>
-                <Message message={message} setVision={setVision} />
-            </div>
-            <div className="header container p-2  ">
-                <Profile
-                    setVision={setVision}
-                    setProfile={setProfile}
-                    profile={profile}
-                    message={message}
-                    setMessage={setMessage}
-                />
-            </div>
             <ThemeContext.Provider
                 value={{
                     theme,
                     setTheme,
                     profile,
-                    message,
-                    setMessage,
+                    messageObj,
+                    setMessageObj,
                     setVision,
+                    setProfile,
                 }}
             >
-                <Products />
+                <Message
+                    messageObj={messageObj}
+                    setMessageObj={setMessageObj}
+                    vision={vision}
+                    setVision={setVision}
+                />
+                <BrowserRouter>
+                    <Header profile={profile} />
+
+                    <Routes>
+                        <Route
+                            path="/profile"
+                            element={
+                                <Profile
+                                    setVision={setVision}
+                                    setProfile={setProfile}
+                                    profile={profile}
+                                    messageObj={messageObj}
+                                    setMessageObj={setMessageObj}
+                                />
+                            }
+                        />
+                        <Route path="/" element={<Products />}>
+                            <Route
+                                path=":productId"
+                                element={<SingleProduct />}
+                            ></Route>
+                        </Route>
+
+                        <Route
+                            path="/aboutCompany"
+                            element={<AboutCompany />}
+                        />
+                        <Route
+                            path="*"
+                            element={
+                                <div
+                                    className="container text-align-center"
+                                    style={{ padding: "1rem" }}
+                                >
+                                    <h3>There's nothing here!</h3>
+                                </div>
+                            }
+                        />
+                    </Routes>
+                </BrowserRouter>
             </ThemeContext.Provider>
         </div>
     );

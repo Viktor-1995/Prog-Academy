@@ -17,7 +17,7 @@ function FullProfile() {
     );
 
     return (
-        <>
+        <div className="fullprofile">
             <OverlayTrigger trigger="click" placement="left" overlay={popover}>
                 <Button variant="secondary">
                     <svg
@@ -32,7 +32,7 @@ function FullProfile() {
                     </svg>
                 </Button>
             </OverlayTrigger>
-        </>
+        </div>
     );
 }
 

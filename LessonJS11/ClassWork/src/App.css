@@ -12,6 +12,10 @@ html, body {
 }
 .header{
     display: flex;
+    flex-direction: row;
+}
+.profile{
+    display: flex;
     justify-content: center;
 }
 .message{
@@ -23,4 +27,14 @@ html, body {
 .hide{
     display: none;
     
+}
+.navlink{
+  padding: 1rem;  
+}
+.navlink:hover{
+    text-decoration: none;
+
+}
+.themeBtn{
+    margin-left: 1rem;
 }

@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import "./products.css";
 
 function CartsInside({ product, removeFromCart, addCount, minusCount }) {
-    console.log(product.count);
+    // console.log(product.count);
     return (
         <ListGroup.Item>
             {product.brand} price is ${product.price}

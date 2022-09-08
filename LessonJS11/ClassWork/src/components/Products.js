@@ -9,6 +9,7 @@ import SearchInProducts from "./SearchInProducts";
 import Cart from "./Cart";
 import ThemeContext from "../context/ThemeContext";
 import FullProfile from "./FullProfile";
+import { Outlet } from "react-router-dom";
 
 function Products() {
     const [products, setProducts] = useState([]);
@@ -17,7 +18,8 @@ function Products() {
     const [filterbyCategory, setFilterbyCategory] = useState(["allProducts"]);
     const [searchValue, setSearchValue] = useState("");
     const [filtredProducts, setFiltredProducts] = useState([]);
-    let { message, setMessage } = useContext(ThemeContext);
+    const { messageObj, setMessageObj } = useContext(ThemeContext);
+
     let { setVision } = useContext(ThemeContext);
     useEffect(() => {
         fetch("https://dummyjson.com/products")
@@ -69,7 +71,13 @@ function Products() {
     }
     const addToCart = (id) => {
         // console.log("item in");
-        setMessage("Item added to your cart");
+        let forMessage = products.filter((product) =>
+            product.id == id ? product : ""
+        );
+        setMessageObj({
+            text: `${forMessage[0].title} added to yout Cart`,
+        });
+
         setVision("");
         categoryValue
             ? setFilterbyCategory(
@@ -89,7 +97,13 @@ function Products() {
     };
     const removeFromCart = (id) => {
         // console.log("item out");
-        setMessage(" Item removed from your Cart");
+        let forMessage = products.filter((product) =>
+            product.id == id ? product : ""
+        );
+        setMessageObj({
+            text: ` ${forMessage[0].title} removed from your Cart`,
+        });
+
         setVision("");
         categoryValue
             ? setFilterbyCategory(
@@ -134,23 +148,20 @@ function Products() {
     return (
         <Container className="container mt-2 p-3">
             <h2>Products</h2>
-            <div className="fullprofile">
-                <FullProfile />
-            </div>
-            <div className="cart">
-                <Cart
-                    products={products}
-                    addCount={addCount}
-                    minusCount={minusCount}
-                    productss={(categoryValue === "allProducts" ||
-                    categoryValue === ""
-                        ? products
-                        : filterbyCategory
-                    ).filter((product) => product.addedToCart)}
-                    addToCart={addToCart}
-                    removeFromCart={removeFromCart}
-                />
-            </div>
+            <Outlet context={products} />
+            <FullProfile />
+            <Cart
+                products={products}
+                addCount={addCount}
+                minusCount={minusCount}
+                productss={(categoryValue === "allProducts" ||
+                categoryValue === ""
+                    ? products
+                    : filterbyCategory
+                ).filter((product) => product.addedToCart)}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+            />
             {/* <SearchInProducts search={search} /> */}
             {/* <Form.Select
                 onChange={chooseCategory}
