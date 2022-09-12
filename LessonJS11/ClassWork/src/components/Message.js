@@ -5,22 +5,37 @@ import { ListGroup, ListGroupItem } from "react-bootstrap";
 import MessageInside from "./MessageInside";
 
 function Message({ messageObj, setMessageObj, vision, setVision }) {
+    const [messageArr, setMessageArr] = useState([]);
+
+    useEffect(() => {
+        setMessageArr([...messageArr, messageObj]);
+    }, [messageObj]);
+
+    console.log(messageArr);
+
     useEffect(() => {
         const timer = setTimeout(() => {
-            setVision("hide");
+            const newMessageArr = [...messageArr];
+            newMessageArr.pop();
+            setMessageArr(newMessageArr);
+            // setVision("hide");
         }, 2000);
         return () => clearTimeout(timer);
-    }, [messageObj]);
-    // const [arr, setArr] = useState([]);
-    // useEffect(() => {
-    //     setArr((ar) => [...ar, messageObj]);
-    //     console.log(arr);
-    // }, [messageObj]);
+    }, [messageArr]);
+
     return (
         <ListGroup variant="flush" className="message">
-            <div className={`${vision}`}>
-                <MessageInside messageObj={messageObj} vision={vision} />
-            </div>
+            {/* <div className={`${vision}`}> */}
+            {/* <MessageInside
+                messageObj={messageArr.map((messageObj) => messageObj)}
+                vision={vision}
+            /> */}
+            {messageArr.map((el, index) => (
+                <ListGroup.Item key={index} variant="success">
+                    {el.text}
+                </ListGroup.Item>
+            ))}
+            {/* </div> */}
         </ListGroup>
     );
 }

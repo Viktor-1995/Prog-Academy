@@ -42,12 +42,16 @@ function App() {
                     setProfile,
                 }}
             >
-                <Message
-                    messageObj={messageObj}
-                    setMessageObj={setMessageObj}
-                    vision={vision}
-                    setVision={setVision}
-                />
+                {messageObj.text ? (
+                    <Message
+                        messageObj={messageObj}
+                        setMessageObj={setMessageObj}
+                        vision={vision}
+                        setVision={setVision}
+                    />
+                ) : (
+                    ""
+                )}
                 <BrowserRouter>
                     <Header profile={profile} />
 
