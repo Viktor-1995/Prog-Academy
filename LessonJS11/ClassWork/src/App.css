@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+}
+#root{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#app{
+    flex:1 1 auto;
+
+}
+.header{
+    display: flex;
+    flex-direction: row;
+}
+.profile{
+    display: flex;
+    justify-content: center;
+}
+.message{
+    position: fixed;
+    left:1rem;
+    top:1rem;
+    z-index: 4;
+}
+.hide{
+    display: none;
+    
+}
+.navlink{
+  padding: 1rem;  
+}
+.navlink:hover{
+    text-decoration: none;
+
+}
+.themeBtn{
+    margin-left: 1rem;
+}
